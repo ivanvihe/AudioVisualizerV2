@@ -31,7 +31,14 @@ class ControlPanelWindow(QObject):
 
     def update_parameter(self, name: str, value: Any) -> None:
         self.parameters[name] = value
+        if name == "opacity":
+            # Special case: deck level transparency control
+            self.active_deck.set_opacity(float(value))
+            return
+
         visual = self.active_deck.visual
         if visual and name in visual.controls:
-            # In a full application this would feed values into the visual object.
-            pass
+            # Forward parameter changes directly to the visual preset so that
+            # audio reactivity controls such as sensitivity or smoothness take
+            # effect immediately.
+            visual.set_control(name, value)
