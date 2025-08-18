@@ -67,7 +67,8 @@ class MidiEngine(QObject):
         for mapping in self.mappings:
             if mapping.channel == channel and mapping.note == note:
                 norm = (value - 0) / 127
-                self.mapped_action_triggered.emit(mapping.action)
+                if getattr(self.mapped_action_triggered, "emit", None):
+                    self.mapped_action_triggered.emit(mapping.action)
                 cb = self._callbacks.get(mapping.action)
                 if cb is not None:
                     cb(norm)
