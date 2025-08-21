@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizer</title>
+  <style>
+    body { margin: 0; background: black; color: white; display: flex; flex-direction: column; }
+    #titlebar { background: #222; padding: 4px; display: flex; justify-content: flex-end; }
+    #fullscreen-btn { background: #444; color: #fff; border: none; padding: 4px 8px; cursor: pointer; }
+    #content { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+  </style>
+</head>
+<body>
+  <div id="titlebar">
+    <button id="fullscreen-btn">Full Screen</button>
+  </div>
+  <div id="content">IVAN</div>
+  <script src="renderer.js"></script>
+</body>
+</html>
