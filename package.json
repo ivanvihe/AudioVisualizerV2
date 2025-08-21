@@ -1,0 +1,12 @@
+{
+  "name": "audio-visualizer-v2",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron electron/main.js",
+    "test": "echo 'No tests specified'"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0"
+  }
+}
